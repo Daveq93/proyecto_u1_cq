@@ -1,13 +1,13 @@
-package com.uce.edu.consultorio;
+package com.uce.edu.demo.consultorio;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Paciente {
 
 	
 	private String nombre;
 	private Integer edad;
-	
-	
-	
 	
 	@Override
 	public String toString() {
