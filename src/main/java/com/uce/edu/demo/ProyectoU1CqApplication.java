@@ -10,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.uce.edu.demo.consultorio.CitaMedica2;
 import com.uce.edu.demo.matricula.Matricula;
 import com.uce.edu.demo.matriculacion.vehicular.MatriculacionVehicular;
+import com.uce.edu.demo.modelo.Estudiante;
+import com.uce.edu.demo.service.IEstudianteService;
 import com.uce.edu.demo.veterinaria.Veterinaria;
 
 @SpringBootApplication
@@ -32,6 +34,9 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 	@Autowired
 	private MatriculacionVehicular matriculacionVehi;
 
+	@Autowired
+	private IEstudianteService estudianteService;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1CqApplication.class, args);
 	}
@@ -58,8 +63,21 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 		
 		//Tercer ejemplo
 		
-		System.out.println(this.matriculacionVehi.matricularVehiculo("VMW", "LGF-2155", "Manuel", "Medina", "1754879852"));
+		//System.out.println(this.matriculacionVehi.matricularVehiculo("VMW", "LGF-2155", "Manuel", "Medina", "1754879852"));
 
+	
+		//Taller
+		Estudiante e1 = new Estudiante();
+		e1.setNombre("Cristian");
+		e1.setApellido("Quizhpe");
+		e1.setCedula("1102512458");
+		
+		this.estudianteService.insertarEstudiante(e1);
+		this.estudianteService.buscarEstudiante(e1.getCedula());
+		this.estudianteService.actualizarEstudiante(e1);
+		this.estudianteService.eliminarEstudiante(e1.getCedula());
+	
+	
 	}
 
 }
