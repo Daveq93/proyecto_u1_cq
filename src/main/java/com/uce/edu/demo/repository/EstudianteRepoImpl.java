@@ -31,5 +31,9 @@ public class EstudianteRepoImpl implements IEstudianteRepo{
 		// TODO Auto-generated method stub
 		System.out.println("Eliminando estudiante con cedula: "+cedula);
 	}
+	
+	public void nuevoMetodoPrueba() {
+		
+	}
 
 }
