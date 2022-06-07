@@ -66,7 +66,9 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 		//System.out.println(this.matriculacionVehi.matricularVehiculo("VMW", "LGF-2155", "Manuel", "Medina", "1754879852"));
 
 	
-		//Taller
+		//Taller 8
+		
+		
 		Estudiante e1 = new Estudiante();
 		e1.setNombre("Cristian");
 		e1.setApellido("Quizhpe");
@@ -76,6 +78,18 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 		this.estudianteService.buscarEstudiante(e1.getCedula());
 		this.estudianteService.actualizarEstudiante(e1);
 		this.estudianteService.eliminarEstudiante(e1.getCedula());
+	
+	
+		Estudiante e2 = new Estudiante();
+		e2.setNombre("Pepito");
+		e2.setApellido("Perez");
+		e2.setCedula("1702001458");
+		
+		this.estudianteService.insertarEstudiante(e2);
+		this.estudianteService.buscarEstudiante(e2.getCedula());
+		this.estudianteService.actualizarEstudiante(e2);
+		this.estudianteService.eliminarEstudiante(e2.getCedula());
+		
 	
 	
 	}
