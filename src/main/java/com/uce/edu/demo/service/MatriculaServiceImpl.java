@@ -7,7 +7,7 @@ import com.uce.edu.demo.modelo.Matricula;
 import com.uce.edu.demo.repository.IMatriculaRepo;
 
 @Service
-public class IMatriculaServiceImpl implements IMatriculaService {
+public class MatriculaServiceImpl implements IMatriculaService {
 
 	@Autowired
 	private IMatriculaRepo matriculaRepo;

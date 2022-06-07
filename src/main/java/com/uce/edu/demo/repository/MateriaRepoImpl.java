@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import com.uce.edu.demo.modelo.Materia;
 
 @Repository
-public class IMateriaRepoImpl implements IMateriaRepo{
+public class MateriaRepoImpl implements IMateriaRepo{
 
 	@Override
 	public void insertar(Materia materia) {
@@ -16,7 +16,7 @@ public class IMateriaRepoImpl implements IMateriaRepo{
 	@Override
 	public Materia buscar(String nombre) {
 		// TODO Auto-generated method stub
-		System.out.println("buscando materia: "+nombre);
+		System.out.println("buscando materia en la base de datos: "+nombre);
 		return null;
 	}
 
@@ -27,9 +27,9 @@ public class IMateriaRepoImpl implements IMateriaRepo{
 	}
 
 	@Override
-	public void eliminar(String numero) {
+	public void eliminar(String nombre) {
 		// TODO Auto-generated method stub
-		System.out.println("Eliminando materia");
+		System.out.println("Eliminando materia: "+nombre);
 	}
 
 }

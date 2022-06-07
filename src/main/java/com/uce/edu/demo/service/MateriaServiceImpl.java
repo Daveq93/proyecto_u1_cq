@@ -2,12 +2,11 @@ package com.uce.edu.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.uce.edu.demo.modelo.Materia;
 import com.uce.edu.demo.repository.IMateriaRepo;
 
 @Service
-public class IMateriaServiceImpl implements IMateriaService {
+public class MateriaServiceImpl implements IMateriaService {
 
 	@Autowired
 	private IMateriaRepo materiaRepo;

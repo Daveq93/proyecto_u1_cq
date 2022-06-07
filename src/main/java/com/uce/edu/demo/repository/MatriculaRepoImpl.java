@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import com.uce.edu.demo.modelo.Matricula;
 
 @Repository
-public class IMatriculaRepoImpl implements IMatriculaRepo{
+public class MatriculaRepoImpl implements IMatriculaRepo{
 
 	@Override
 	public void insertar(Matricula matricula) {
