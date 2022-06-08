@@ -12,7 +12,7 @@ public class CuentaBancariaRepoImpl implements ICuentaBancariaRepo {
 	@Override
 	public void insertar(CuentaBancaria cuenta) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Insertando Cuenta Bancaria");
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class CuentaBancariaRepoImpl implements ICuentaBancariaRepo {
 	@Override
 	public void eliminar(String numero) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Emilinando Cuenta Bancaria con numero: "+numero);
 	}
 
 }

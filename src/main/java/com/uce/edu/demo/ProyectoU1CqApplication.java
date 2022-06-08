@@ -1,6 +1,8 @@
 package com.uce.edu.demo;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +13,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.uce.edu.demo.banco.modelo.Retiro;
 import com.uce.edu.demo.banco.service.IDepositoService;
+import com.uce.edu.demo.banco.service.IRetiroService;
 import com.uce.edu.demo.banco.service.ITransferenciaService;
 import com.uce.edu.demo.consultorio.CitaMedica2;
 import com.uce.edu.demo.matriculacion.vehicular.MatriculacionVehicular;
@@ -59,6 +63,9 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 	
 	@Autowired
 	private IDepositoService depositoService;
+	
+	@Autowired
+	private IRetiroService retiroService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1CqApplication.class, args);
@@ -157,10 +164,26 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 		
 		//Taller 8
 		System.out.println("------------ TRANSFERENCIA ----------------");
-		this.transferenciaService.realizarTransferencia("1232346", "234644", new BigDecimal(20));
-	
+//		this.transferenciaService.realizarTransferencia("1232346", "234644", new BigDecimal(20));
+//	
 		System.out.println("-------------- DEPOSITO ----------------------");
-	   this.depositoService.registrarDeposito("12154", new BigDecimal(30));
+//	   this.depositoService.registrarDeposito("12154", new BigDecimal(30));
+		
+		//Tarea 7
+		
+		System.out.println("------------  RETIRO ---------------");
+		
+		Retiro retiroPrueba =new Retiro();
+		retiroPrueba.setFecha(LocalDateTime.now());
+		retiroPrueba.setMonto(new BigDecimal(12));
+		retiroPrueba.setNumeroCuenta("ASH-1226544");
+		
+		this.retiroService.insertarRetiro("ASH-1226544", new BigDecimal(70));
+		
+		this.retiroService.buscarPorFecha(LocalDateTime.of(2022, Month.JUNE,8,16,33));
+		
+		this.retiroService.actualizarRetiro(retiroPrueba);
+		this.retiroService.eliminarPorFecha(LocalDateTime.of(2022, Month.JUNE,8,16,33));
 	
 	}
 

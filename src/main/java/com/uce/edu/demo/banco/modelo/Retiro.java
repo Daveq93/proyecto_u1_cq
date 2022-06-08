@@ -3,9 +3,7 @@ package com.uce.edu.demo.banco.modelo;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class Deposito {
-
-	
+public class Retiro {
 	private String numeroCuenta;
 	private LocalDateTime fecha;
 	private BigDecimal monto;
@@ -13,7 +11,7 @@ public class Deposito {
 	
 	@Override
 	public String toString() {
-		return "Deposito [numeroCuenta=" + numeroCuenta + ", fecha=" + fecha + ", monto=" + monto + "]";
+		return "Retiro[numeroCuenta=" + numeroCuenta + ", fecha=" + fecha + ", monto=" + monto + "]";
 	}
 	//set and get
 	public String getNumeroCuenta() {
