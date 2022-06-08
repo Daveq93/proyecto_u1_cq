@@ -1,5 +1,6 @@
 package com.uce.edu.demo;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.uce.edu.demo.banco.service.IDepositoService;
+import com.uce.edu.demo.banco.service.ITransferenciaService;
 import com.uce.edu.demo.consultorio.CitaMedica2;
 import com.uce.edu.demo.matriculacion.vehicular.MatriculacionVehicular;
 import com.uce.edu.demo.modelo.Estudiante;
@@ -50,6 +53,12 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 	
 	@Autowired
 	private IMatriculaService matriculaService;
+	
+	@Autowired
+	private ITransferenciaService transferenciaService;
+	
+	@Autowired
+	private IDepositoService depositoService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1CqApplication.class, args);
@@ -114,20 +123,20 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 		materia1.setSemestre("Quinto");
 		
 		System.out.println("------------------------------------ MATERIA  ------------------------");
-		this.materiaService.insertarMateria(materia1);
-		this.materiaService.buscarMateriaPorNombre("Analisis Matematico");
-		this.materiaService.actualizarMateria(materia1);
-		this.materiaService.eliminarMateria("Analisis Matematico");
+//		this.materiaService.insertarMateria(materia1);
+//		this.materiaService.buscarMateriaPorNombre("Analisis Matematico");
+//		this.materiaService.actualizarMateria(materia1);
+//		this.materiaService.eliminarMateria("Analisis Matematico");
 		
 		Materia materia2 = new Materia();
 		materia2.setNombre("Matematica Discreta");
 		materia2.setSemestre("Quinto");
 		
 		
-		this.materiaService.insertarMateria(materia2);
-		this.materiaService.buscarMateriaPorNombre("Matematica Discreta");
-		this.materiaService.actualizarMateria(materia2);
-		this.materiaService.eliminarMateria("Matematica Discreta");
+//		this.materiaService.insertarMateria(materia2);
+//		this.materiaService.buscarMateriaPorNombre("Matematica Discreta");
+//		this.materiaService.actualizarMateria(materia2);
+//		this.materiaService.eliminarMateria("Matematica Discreta");
 		
 		
 		System.out.println("------------------------------------ MATRICULA  ------------------------");
@@ -141,12 +150,18 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 		matricula1.setMaterias(listaMaterias);
 		
 		
-		this.matriculaService.insertarMatricula(matricula1);
-		this.matriculaService.buscarMatricula(matricula1.getNumero());
-		this.matriculaService.actualizarMatricula(matricula1);
-		this.matriculaService.eliminarMatricula(matricula1.getNumero());
+//		this.matriculaService.insertarMatricula(matricula1);
+//		this.matriculaService.buscarMatricula(matricula1.getNumero());
+//		this.matriculaService.actualizarMatricula(matricula1);
+//		this.matriculaService.eliminarMatricula(matricula1.getNumero());
 		
-		
+		//Taller 8
+		System.out.println("------------ TRANSFERENCIA ----------------");
+		this.transferenciaService.realizarTransferencia("1232346", "234644", new BigDecimal(20));
+	
+		System.out.println("-------------- DEPOSITO ----------------------");
+	   this.depositoService.registrarDeposito("12154", new BigDecimal(30));
+	
 	}
 
 }

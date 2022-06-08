@@ -4,17 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Matricula {
+public class Matriculas {
 
 	//@Autowired
 	private Estudiante estudiante;
 	//@Autowired
 	private Materia materia;
 
-	public Matricula(Estudiante estudiante, Materia materia) {
+	public Matriculas(Estudiante estudiante, Materia materia) {
 		this.estudiante = estudiante;
 		this.materia = materia;
 		System.out.println("DI por constructor");
+	}
+
+	public Matriculas() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String matricular(String nombre, String cedula, String nombreMateria, Integer creditos) {
