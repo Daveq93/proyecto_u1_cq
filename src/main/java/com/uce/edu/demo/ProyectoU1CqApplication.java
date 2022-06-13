@@ -1,6 +1,7 @@
 package com.uce.edu.demo;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
@@ -22,6 +23,8 @@ import com.uce.edu.demo.matriculacion.vehicular.MatriculacionVehicular;
 import com.uce.edu.demo.modelo.Estudiante;
 import com.uce.edu.demo.modelo.Materia;
 import com.uce.edu.demo.modelo.Matricula;
+import com.uce.edu.demo.santamaria.modelo.Producto;
+import com.uce.edu.demo.santamaria.service.IGestorInventarioService;
 import com.uce.edu.demo.service.IEstudianteService;
 import com.uce.edu.demo.service.IMateriaService;
 import com.uce.edu.demo.service.IMatriculaService;
@@ -66,6 +69,9 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 	
 	@Autowired
 	private IRetiroService retiroService;
+	
+	@Autowired
+	private IGestorInventarioService gestorInventario;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1CqApplication.class, args);
@@ -178,13 +184,36 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 		retiroPrueba.setMonto(new BigDecimal(12));
 		retiroPrueba.setNumeroCuenta("ASH-1226544");
 		
-		this.retiroService.insertarRetiro("ASH-1226544", new BigDecimal(70));
+		//this.retiroService.insertarRetiro("ASH-1226544", new BigDecimal(70));
 		
-		this.retiroService.buscarPorFecha(LocalDateTime.of(2022, Month.JUNE,8,16,33));
+		//this.retiroService.buscarPorFecha(LocalDateTime.of(2022, Month.JUNE,8,16,33));
 		
-		this.retiroService.actualizarRetiro(retiroPrueba);
-		this.retiroService.eliminarPorFecha(LocalDateTime.of(2022, Month.JUNE,8,16,33));
+		//this.retiroService.actualizarRetiro(retiroPrueba);
+		//this.retiroService.eliminarPorFecha(LocalDateTime.of(2022, Month.JUNE,8,16,33));
 	
+		
+		//Tarea 8
+		System.out.println("--------- Mega Santa Maria ------------");
+		this.gestorInventario.registrarProducto("Coca-Cola", "AD-1254", new BigDecimal(1.25));
+		this.gestorInventario.insertarInventario(100, LocalDateTime.of(2022, Month.APRIL,14,15,0), "codProd");
+		
+		
+		this.gestorInventario.registrarProducto("Doritos", "DRT-18774", new BigDecimal(0.60).setScale(2, RoundingMode.HALF_UP));
+		this.gestorInventario.insertarInventario(50, LocalDateTime.of(2022, Month.APRIL,16,15,0), "codProd");
+		
+		this.gestorInventario.registrarProducto("Tango", "GTT-18004", new BigDecimal(0.25).setScale(2, RoundingMode.HALF_UP));
+		this.gestorInventario.insertarInventario(60, LocalDateTime.of(2022, Month.APRIL,16,15,0), "codProd");
+		
+		this.gestorInventario.registrarProducto("Avena", "VFV-1877002", new BigDecimal(0.80).setScale(2, RoundingMode.HALF_UP));
+		this.gestorInventario.insertarInventario(90, LocalDateTime.of(2022, Month.APRIL,16,15,0), "codProd");
+		
+		this.gestorInventario.registrarProducto("Leche", "LACT-102154", new BigDecimal(0.90).setScale(2, RoundingMode.HALF_UP));
+		this.gestorInventario.insertarInventario(30, LocalDateTime.of(2022, Month.APRIL,16,15,0), "codProd");
+		
+		
+		System.out.println("\n --------- MOSTRANDO REPORTE DE INVENTARIO  --------------\n");
+		this.gestorInventario.generarReporte(LocalDateTime.of(2022, Month.APRIL,16,15,0)).forEach(System.out::println);
+		
 	}
 
 }
