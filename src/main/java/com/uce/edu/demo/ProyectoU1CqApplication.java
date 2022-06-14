@@ -220,11 +220,19 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 		
 		
 		//Taller 10
-		System.out.println("\n ------------   Taller 10  ---------");
-		BigDecimal interes = this.bancariaFachadaService.calcularInteres("sdfs");
+//		System.out.println("\n ------------   Taller 10  ---------");
+//		BigDecimal interes = this.bancariaFachadaService.calcularInteres("sdfs");
+//		
+//		System.out.println(interes.setScale(2, RoundingMode.HALF_UP));
+		
+		
+		//Tarea 9
+		
+		System.out.println("\n ------------   Tarea 9  ---------");
+		BigDecimal interes = this.bancariaFachadaService.calcularInteres("12154");
 		
 		System.out.println(interes.setScale(2, RoundingMode.HALF_UP));
-		System.out.println("Modificacion");
+		
 	}
 
 }

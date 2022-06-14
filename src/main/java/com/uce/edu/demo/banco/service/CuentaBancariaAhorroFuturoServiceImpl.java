@@ -2,19 +2,15 @@ package com.uce.edu.demo.banco.service;
 
 import java.math.BigDecimal;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.uce.edu.demo.banco.modelo.CuentaBancaria;
-import com.uce.edu.demo.banco.repository.ICuentaBancariaRepo;
 
 @Service
-@Qualifier("ahorros")
-public class CuentaBancariaAhorrosServiceImpl implements ICuentaBancariaService{
+@Qualifier("afuturo")
+public class CuentaBancariaAhorroFuturoServiceImpl implements ICuentaBancariaService {
 
-
-	
 	@Override
 	public void insertarCuentaBancaria(CuentaBancaria cuenta) {
 		// TODO Auto-generated method stub
@@ -40,12 +36,10 @@ public class CuentaBancariaAhorrosServiceImpl implements ICuentaBancariaService{
 	}
 
 	@Override
-	public BigDecimal calcularInteres(String numeroCuenta,BigDecimal saldo) {
+	public BigDecimal calcularInteres(String numeroCuenta, BigDecimal saldo) {
 		// TODO Auto-generated method stub
-		//Codigo duplicado lo solucionamos con una Fachada (Gestor)
-		//CuentaBancaria cb = this.cuentaBancariaRepo.buscar(numeroCuenta);
-	//	BigDecimal saldo =null;
-		BigDecimal interes = new BigDecimal(560).multiply(new BigDecimal(0.15));
+		System.out.println("Calculando interes de cuenta ahorro futuro ...");
+		BigDecimal interes = new BigDecimal(560).multiply(new BigDecimal(0.25));
 		return interes.add(saldo.divide(new BigDecimal(100)));
 	}
 
