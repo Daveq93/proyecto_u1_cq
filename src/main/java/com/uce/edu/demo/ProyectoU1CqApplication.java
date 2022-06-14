@@ -16,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.uce.edu.demo.banco.modelo.Retiro;
 import com.uce.edu.demo.banco.service.IDepositoService;
+import com.uce.edu.demo.banco.service.IFachadaCuentaBancariaService;
 import com.uce.edu.demo.banco.service.IRetiroService;
 import com.uce.edu.demo.banco.service.ITransferenciaService;
 import com.uce.edu.demo.consultorio.CitaMedica2;
@@ -72,6 +73,9 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 	
 	@Autowired
 	private IGestorInventarioService gestorInventario;
+	
+	@Autowired
+	private IFachadaCuentaBancariaService bancariaFachadaService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1CqApplication.class, args);
@@ -193,27 +197,33 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 	
 		
 		//Tarea 8
-		System.out.println("--------- Mega Santa Maria ------------");
-		this.gestorInventario.registrarProducto("Coca-Cola", "AD-1254", new BigDecimal(1.25));
-		this.gestorInventario.insertarInventario(100, LocalDateTime.of(2022, Month.APRIL,14,15,0), "codProd");
+//		System.out.println("--------- Mega Santa Maria ------------");
+//		this.gestorInventario.registrarProducto("Coca-Cola", "AD-1254", new BigDecimal(1.25));
+//		this.gestorInventario.insertarInventario(100, LocalDateTime.of(2022, Month.APRIL,14,15,0), "codProd");
+//		
+//		
+//		this.gestorInventario.registrarProducto("Doritos", "DRT-18774", new BigDecimal(0.60).setScale(2, RoundingMode.HALF_UP));
+//		this.gestorInventario.insertarInventario(50, LocalDateTime.of(2022, Month.APRIL,16,15,0), "codProd");
+//		
+//		this.gestorInventario.registrarProducto("Tango", "GTT-18004", new BigDecimal(0.25).setScale(2, RoundingMode.HALF_UP));
+//		this.gestorInventario.insertarInventario(60, LocalDateTime.of(2022, Month.APRIL,16,15,0), "codProd");
+//		
+//		this.gestorInventario.registrarProducto("Avena", "VFV-1877002", new BigDecimal(0.80).setScale(2, RoundingMode.HALF_UP));
+//		this.gestorInventario.insertarInventario(90, LocalDateTime.of(2022, Month.APRIL,16,15,0), "codProd");
+//		
+//		this.gestorInventario.registrarProducto("Leche", "LACT-102154", new BigDecimal(0.90).setScale(2, RoundingMode.HALF_UP));
+//		this.gestorInventario.insertarInventario(30, LocalDateTime.of(2022, Month.APRIL,16,15,0), "codProd");
+//		
+//		
+//		System.out.println("\n --------- MOSTRANDO REPORTE DE INVENTARIO  --------------\n");
+//		this.gestorInventario.generarReporte(LocalDateTime.of(2022, Month.APRIL,16,15,0)).forEach(System.out::println);
 		
 		
-		this.gestorInventario.registrarProducto("Doritos", "DRT-18774", new BigDecimal(0.60).setScale(2, RoundingMode.HALF_UP));
-		this.gestorInventario.insertarInventario(50, LocalDateTime.of(2022, Month.APRIL,16,15,0), "codProd");
+		//Taller 10
+		System.out.println("\n ------------   Taller 10  ---------");
+		BigDecimal interes = this.bancariaFachadaService.calcularInteres("sdfs");
 		
-		this.gestorInventario.registrarProducto("Tango", "GTT-18004", new BigDecimal(0.25).setScale(2, RoundingMode.HALF_UP));
-		this.gestorInventario.insertarInventario(60, LocalDateTime.of(2022, Month.APRIL,16,15,0), "codProd");
-		
-		this.gestorInventario.registrarProducto("Avena", "VFV-1877002", new BigDecimal(0.80).setScale(2, RoundingMode.HALF_UP));
-		this.gestorInventario.insertarInventario(90, LocalDateTime.of(2022, Month.APRIL,16,15,0), "codProd");
-		
-		this.gestorInventario.registrarProducto("Leche", "LACT-102154", new BigDecimal(0.90).setScale(2, RoundingMode.HALF_UP));
-		this.gestorInventario.insertarInventario(30, LocalDateTime.of(2022, Month.APRIL,16,15,0), "codProd");
-		
-		
-		System.out.println("\n --------- MOSTRANDO REPORTE DE INVENTARIO  --------------\n");
-		this.gestorInventario.generarReporte(LocalDateTime.of(2022, Month.APRIL,16,15,0)).forEach(System.out::println);
-		
+		System.out.println(interes.setScale(2, RoundingMode.HALF_UP));
 	}
 
 }

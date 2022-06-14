@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.uce.edu.demo.banco.modelo.Deposito;
@@ -20,6 +21,7 @@ import com.uce.edu.demo.banco.to.TransaccionTo;
 public class TransaccionServiceImpl implements ITransaccionService {
 
 	@Autowired
+	
 	private ITransferenciaService transferenciaService;
 
 	@Autowired
