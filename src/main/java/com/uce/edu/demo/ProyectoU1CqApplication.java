@@ -3,7 +3,6 @@ package com.uce.edu.demo;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +23,8 @@ import com.uce.edu.demo.matriculacion.vehicular.MatriculacionVehicular;
 import com.uce.edu.demo.modelo.Estudiante;
 import com.uce.edu.demo.modelo.Materia;
 import com.uce.edu.demo.modelo.Matricula;
-import com.uce.edu.demo.santamaria.modelo.Producto;
+import com.uce.edu.demo.modelo.ProfesorGeneral;
+import com.uce.edu.demo.modelo.ProfesorMateria;
 import com.uce.edu.demo.santamaria.service.IGestorInventarioService;
 import com.uce.edu.demo.service.IEstudianteService;
 import com.uce.edu.demo.service.IMateriaService;
@@ -76,6 +76,18 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 	
 	@Autowired
 	private IFachadaCuentaBancariaService bancariaFachadaService;
+	
+	@Autowired
+	private ProfesorGeneral profGeneral;
+	
+	@Autowired
+	private ProfesorGeneral profGeneral1;
+	
+	@Autowired
+	private ProfesorMateria profMateria;
+	
+	@Autowired
+	private ProfesorMateria profMateria1;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1CqApplication.class, args);
@@ -228,11 +240,39 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 		
 		//Tarea 9
 		
-		System.out.println("\n ------------   Tarea 9  ---------");
-		BigDecimal interes = this.bancariaFachadaService.calcularInteres("12154");
+//		System.out.println("\n ------------   Tarea 9  ---------");
+//		BigDecimal interes = this.bancariaFachadaService.calcularInteres("12154");
+//		
+//		System.out.println(interes.setScale(2, RoundingMode.HALF_UP));
 		
-		System.out.println(interes.setScale(2, RoundingMode.HALF_UP));
 		
+		
+		//taller 11
+		System.out.println("---------------- TALLER 11 : SCOPES");
+		this.profGeneral.setNombre("Manuel");
+		this.profGeneral.setApellido("Ramos");
+		
+		System.out.println(this.profGeneral.toString());
+		
+		System.out.println(this.profGeneral1.toString());//hace referencia a la instancia en el contexto
+	
+	  System.out.println("------------- ");
+	  
+	  this.profMateria.setNombre("Adrian");
+	  this.profMateria.setApellido("Vera");
+	  
+	  System.out.println(  this.profMateria);
+	  
+	  
+	  System.out.println("utilizo la misma instancia (Prototype)");
+	  this.profMateria.setNombre("Maria");
+	  this.profMateria.setApellido("Ortega");
+	  
+	  System.out.println(  this.profMateria); // como es prototype se crea una nueva, por eso tiene cambios
+	
+	System.out.println("-------- matricula ---------");
+	  this.matriculaService.insertarMatricula(matricula1);
+	  
 	}
 
 }
