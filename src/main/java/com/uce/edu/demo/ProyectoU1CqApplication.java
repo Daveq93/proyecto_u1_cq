@@ -30,6 +30,7 @@ import com.uce.edu.demo.service.IEstudianteService;
 import com.uce.edu.demo.service.IMateriaService;
 import com.uce.edu.demo.service.IMatriculaService;
 import com.uce.edu.demo.veterinaria.Veterinaria;
+import com.uce.edu.demo.vuelo.service.IGestorSunTravelService;
 
 
 
@@ -88,6 +89,9 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 	
 	@Autowired
 	private ProfesorMateria profMateria1;
+	
+	@Autowired
+	private IGestorSunTravelService gestorSunTravelService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU1CqApplication.class, args);
@@ -248,31 +252,40 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 		
 		
 		//taller 11
-		System.out.println("---------------- TALLER 11 : SCOPES");
-		this.profGeneral.setNombre("Manuel");
-		this.profGeneral.setApellido("Ramos");
+//		System.out.println("---------------- TALLER 11 : SCOPES");
+//		this.profGeneral.setNombre("Manuel");
+//		this.profGeneral.setApellido("Ramos");
+//		
+//		System.out.println(this.profGeneral.toString());
+//		
+//		System.out.println(this.profGeneral1.toString());//hace referencia a la instancia en el contexto
+//	
+//	  System.out.println("------------- ");
+//	  
+//	  this.profMateria.setNombre("Adrian");
+//	  this.profMateria.setApellido("Vera");
+//	  
+//	  System.out.println(  this.profMateria);
+//	  
+//	  
+//	  System.out.println("utilizo la misma instancia (Prototype)");
+//	  this.profMateria.setNombre("Maria");
+//	  this.profMateria.setApellido("Ortega");
+//	  
+//	  System.out.println(  this.profMateria); // como es prototype se crea una nueva, por eso tiene cambios
+//	
+//	System.out.println("-------- matricula ---------");
+//	  this.matriculaService.insertarMatricula(matricula1);
+	  
 		
-		System.out.println(this.profGeneral.toString());
+		//tarea 10
 		
-		System.out.println(this.profGeneral1.toString());//hace referencia a la instancia en el contexto
-	
-	  System.out.println("------------- ");
-	  
-	  this.profMateria.setNombre("Adrian");
-	  this.profMateria.setApellido("Vera");
-	  
-	  System.out.println(  this.profMateria);
-	  
-	  
-	  System.out.println("utilizo la misma instancia (Prototype)");
-	  this.profMateria.setNombre("Maria");
-	  this.profMateria.setApellido("Ortega");
-	  
-	  System.out.println(  this.profMateria); // como es prototype se crea una nueva, por eso tiene cambios
-	
-	System.out.println("-------- matricula ---------");
-	  this.matriculaService.insertarMatricula(matricula1);
-	  
+		System.out.println("----------- TAREA 10  ------------------");
+		
+		this.gestorSunTravelService.realizarReserva("1284sd", "tame", 125, new BigDecimal(230), "Carlos", "1745120145");
+		
+		this.gestorSunTravelService.realizarFacturacion("1284sd", "121684654168700021");
+		
 	}
 
 }
