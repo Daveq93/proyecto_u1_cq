@@ -279,12 +279,23 @@ public class ProyectoU1CqApplication implements CommandLineRunner {
 	  
 		
 		//tarea 10
+//		
+//		System.out.println("----------- TAREA 10  ------------------");
+//		
+//		this.gestorSunTravelService.realizarReserva("1284sd", "tame", 125, new BigDecimal(230), "Carlos", "1745120145");
+//		
+//		this.gestorSunTravelService.realizarFacturacion("1284sd", "121684654168700021");
 		
-		System.out.println("----------- TAREA 10  ------------------");
 		
-		this.gestorSunTravelService.realizarReserva("1284sd", "tame", 125, new BigDecimal(230), "Carlos", "1745120145");
+		System.out.println("-------- Taller 12---------");
+		this.profGeneral.setNombre("Manuel");
+		this.profGeneral.setApellido("Ramos");
 		
-		this.gestorSunTravelService.realizarFacturacion("1284sd", "121684654168700021");
+		  this.profMateria.setNombre("Maria");
+		  this.profMateria.setApellido("Ortega");
+		
+		this.matriculaService.insertarMatricula(matricula1);
+		  
 		
 	}
 
